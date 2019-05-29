@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.Navbar {
+    border: 3px solid purple;
+    margin-bottom: 4rem;
+}
+
+.OnBoard {
+    width: 75%;
+}
