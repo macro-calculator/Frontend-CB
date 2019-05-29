@@ -1,11 +1,12 @@
 //render:
-    //breakdown
-    //editGoal
-    //meals 
+//breakdown
+//editGoal
+//meals
 
-import React from 'react';
-import Breakdown from './breakdown';
-import Goal from './Goal';
+import React from "react";
+import Breakdown from "./breakdown";
+import Goal from "./goal";
+import Meals from "../meals/meals";
 
 function Dashboard() {
   return (
@@ -13,6 +14,7 @@ function Dashboard() {
       I am the Dashboard component.
       <Breakdown />
       <Goal />
+      <Meals />
     </div>
   );
 }

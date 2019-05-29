@@ -1,19 +1,22 @@
 //state: sign-in vs sign-up
 //switch between signIn.js and signUp.js
-
-import React from 'react';
-import SignIn from './signIn';
-import SignUp from './signUp';
-import SignUp2 from './signUp2';
+// == Dependencies == //
+import React from "react";
+// == Components == //
+import SignIn from "./signIn";
+import SignUp from "./signUp";
+// == Style == //
+import Container from '@material-ui/core/Container';
 
 function OnBoard() {
   return (
+    <Container>
     <div className="OnBoard">
       I am the OnBoard component.
       <SignIn />
       <SignUp />
-      <SignUp2 />
     </div>
+    </Container>
   );
 }
 
