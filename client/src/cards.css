@@ -1,9 +1,16 @@
 .card {
-    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-between;
     width: 20rem;
-    height: 25rem;
+    height: auto;
+    min-height: 22rem;
     /* width: 100%; */
-    padding: 3rem;
+    padding: 2rem;
+    margin: 2rem;
+    background-color: #FEFEFD;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgb(0, 0, 0);
 }
 
 .card-container {
@@ -23,4 +30,12 @@
 
 select {
     width: 86%;
+}
+
+button {
+    border: none;
+    background-color: #157D7C; 
+    color: #C7DDCC;
+    height: 3rem;
+    width: 11rem;
 }

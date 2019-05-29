@@ -12,9 +12,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-   <Container>
+
       <Navbar />
-    </Container>
+
       <Switch>
         <Route path="/sign" component={OnBoard} />
         <Route path="/dashboard" component={Dashboard} />

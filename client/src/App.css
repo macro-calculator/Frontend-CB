@@ -3,13 +3,32 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #172328;
+}
+
+h2, h3, h4, h5 {
+    color: #157D7C
 }
 
 .Navbar {
-    border: 3px solid purple;
-    margin-bottom: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    background-color: #157D7C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 3px 10px 0 rgb(0, 0, .5);
+}
+
+.Navbar .logo {
+    margin-left: 5rem;
+}
+
+.Navbar .links {
+    margin-right: 5rem;
 }
 
 .OnBoard {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
 }

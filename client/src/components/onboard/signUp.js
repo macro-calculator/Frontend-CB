@@ -16,80 +16,88 @@
 // == Dependencies == //
 import React from "react";
 // == Components ==//
-import HeightDropDown from './height'
+import HeightDropDown from "./height";
+import ActivityDropDown from "./activity";
+import GoalDropDown from "./goal";
 // == Style == //
 import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
 const SignUp = props => {
-    console.log("state:", props.state)
-    
-
   return (
     <div className="SignUp">
-       
-        <h2>Sign Up</h2>
-        <div className="card-container">
-         <div className="card">
-       <form onSubmit={props.addUser}>
-           Username<br/>
-           <input
-           name="username"
-           value={props.state.username}
-           onChange={props.handleChanges}
-        /><br/><br/>
-           Password<br/>
-           <input
-           name="password"
-           value={props.state.password}
-           onChange={props.handleChanges}/><br/><br/>
-           Email<br/>
-           <input
-           name="email"
-           value={props.state.email}
-           onChange={props.handleChanges}/><br/><br/>
-           Age<br/>
-           <input
-           name="age"
-           value={props.state.age}
-           onChange={props.handleChanges}/><br/><br/>
-           Gender<br/>
-           <input
-           name="gender"
-           value={props.state.gender}
-           onChange={props.handleChanges}/>\
-       </form>
+      <h2>Sign Up</h2>
+      <div className="card-container">
+        <div className="card">
+          <form onSubmit={props.addUser}>
+            <h4>Username</h4>
+            <input
+              name="username"
+              value={props.state.username}
+              onChange={props.handleChanges}
+            />
+            <h4>Password</h4>
+            <input
+              name="password"
+              value={props.state.password}
+              onChange={props.handleChanges}
+            />
+            <h4>Email</h4>
+            <input
+              name="email"
+              value={props.state.email}
+              onChange={props.handleChanges}
+            />
+            <h4>Age</h4>
+            <input
+              name="age"
+              value={props.state.age}
+              onChange={props.handleChanges}
+            />
+            <h4>Gender</h4>
+            <input
+              name="gender"
+              value={props.state.gender}
+              onChange={props.handleChanges}
+            />
+          </form>
+        </div>
+        <div className="card">
+          <form>
+            <h4>Height</h4>
+            <HeightDropDown
+              handleChanges={props.handleChanges}
+              height={props.state.height}
+            />
+            <h4>Current Weight (lbs)</h4>
+            <input
+              name="weight"
+              value={props.state.weight}
+              onChange={props.handleChanges}
+            />
+            <h4>How many days per week do you exercise?</h4>
+            <ActivityDropDown
+              handleChanges={props.handleChanges}
+              activityLevel={props.state.activityLevel}
+            />
+            <h4>What are your weight goals?</h4>
+            <GoalDropDown
+              handleChanges={props.handleChanges}
+              goal={props.state.goal}
+            />
+            <br />
+            <br />
+            <button onClick={props.addUser}>Sign Up</button>
+            <br />
+            <br />
+            Already have an account?<br/>
+            <button onClick={props.switchSign}>Log In</button>
+          </form>
+        </div>
       </div>
-      <div className="card">
-       <form>
-           Height<br/>
-        <HeightDropDown handleChanges={props.handleChanges} height={props.state.height} />
-           {/* <input
-           name="height"
-           value={props.state.height}
-           onChange={props.handleChanges}/><br/><br/> */}
-           Weight<br/>
-           <input
-           name="weight"
-           value={props.state.weight}
-           onChange={props.handleChanges}/><br/><br/>
-           Activity Level<br/>
-           <input
-           name="activityLevel"
-           value={props.state.activityLevel}
-           onChange={props.handleChanges}/><br/><br/>
-           Goal<br/>
-           <input
-           name="goal"
-           value={props.state.goal}
-           onChange={props.handleChanges}/><br/><br/>
-           <button onClick={props.addUser}>Sign Up</button>
-       </form>
-      </div>
-    </div>
     </div>
   );
-}
+};
 
 export default SignUp;
 
