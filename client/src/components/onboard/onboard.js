@@ -6,17 +6,18 @@ import React from "react";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 // == Style == //
-import Container from '@material-ui/core/Container';
+import Container from "@material-ui/core/Container";
+import "../../App.css";
 
 function OnBoard() {
   return (
-    <Container>
     <div className="OnBoard">
-      I am the OnBoard component.
-      <SignIn />
-      <SignUp />
+      <Container>
+        I am the OnBoard component.
+        <SignIn />
+        <SignUp />
+      </Container>
     </div>
-    </Container>
   );
 }
 

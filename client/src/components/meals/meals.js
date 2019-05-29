@@ -23,10 +23,13 @@
 //Then multiply those numbers by 2,
 //that’s how many grams of each you should have per meal.
 
+// == Dependencies == //
 import React from "react";
+// == Style == //
+import Card from '@material-ui/core/Card';
 
 function Meals() {
-  return <div className="Meals">I am the Meals component.</div>;
+  return <div className="Meals"><Card>I am the Meals component.</Card></div>;
 }
 
 export default Meals;

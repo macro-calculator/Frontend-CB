@@ -31,10 +31,13 @@
 // Fat grams= 2,000*0.033= 66 grams
 // This is the total grams you’d recommend to the user.
 
+// == Dependencies ==//
 import React from "react";
+// == Style == //
+import Card from '@material-ui/core/Card';
 
 function Breakdown() {
-  return <div className="Breakdown">I am the Breakdown component.</div>;
+  return <div className="Breakdown"><Card>I am the Breakdown component.</Card></div>;
 }
 
 export default Breakdown;
