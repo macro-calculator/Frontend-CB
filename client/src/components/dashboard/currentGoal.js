@@ -10,7 +10,8 @@ function Goal() {
     <div className="Goal">
       <h3>Current Goal</h3>
       <div className="card">
-        <div>I am the Goal component.</div>
+        <p>You are currently eating to <br/></p>
+        
         <button className="minor">Edit</button>
       </div>
     </div>
