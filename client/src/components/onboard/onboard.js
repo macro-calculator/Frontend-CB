@@ -38,7 +38,7 @@ class OnBoard extends Component {
         const { username, password, email, gender, age, height, weight, activityLevel, goal } = this.state
         const newUser = { username, password, email, gender, activityLevel, goal }
         newUser.age = Number(age)
-        newUser.height = parseFloat(height)
+        newUser.height = Number(height) / 12
         newUser.weight = Number(weight)
         console.log("register", newUser)
         console.log("TODO: log user in")

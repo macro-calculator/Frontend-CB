@@ -16,12 +16,15 @@
 // == Dependencies == //
 import React from "react";
 // == Components ==//
+import HeightDropDown from './height'
 // == Style == //
 import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
 const SignUp = props => {
     console.log("state:", props.state)
+    
+
   return (
     <div className="SignUp">
        
@@ -60,10 +63,11 @@ const SignUp = props => {
       <div className="card">
        <form>
            Height<br/>
-           <input
+        <HeightDropDown handleChanges={props.handleChanges} height={props.state.height} />
+           {/* <input
            name="height"
            value={props.state.height}
-           onChange={props.handleChanges}/><br/><br/>
+           onChange={props.handleChanges}/><br/><br/> */}
            Weight<br/>
            <input
            name="weight"
