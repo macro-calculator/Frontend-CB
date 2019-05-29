@@ -7,7 +7,7 @@
 import React from "react";
 // == Components == //
 import Breakdown from "./breakdown";
-import Goal from "./goal";
+//import Goal from "./goal";
 import Meals from "../meals/meals";
 // == Style == //
 import Container from '@material-ui/core/Container';
@@ -18,7 +18,7 @@ function Dashboard() {
     <Container>
       I am the Dashboard component.
       <Breakdown />
-      <Goal />
+      {/* <Goal /> */}
       <Meals />
       </Container>
     </div>
