@@ -4,13 +4,12 @@
     justify-content: center;
     align-items: space-between;
     width: 20rem;
+    /* min-height: 22rem; */
     height: auto;
-    min-height: 22rem;
-    /* width: 100%; */
     padding: 2rem;
     margin: 2rem;
     background-color: #FEFEFD;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgb(0, 0, 0);
 }
 
 .card-container {
@@ -34,8 +33,38 @@ select {
 
 button {
     border: none;
-    background-color: #157D7C; 
-    color: #C7DDCC;
+    background-color: #6EBDDB; 
+    color: white;
     height: 3rem;
     width: 11rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
+    position: absolute;
+    margin-top: 11.5rem;
+}
+
+.signup-btn {
+    margin-top: 20rem;
+}
+
+button:hover {
+    background-color: #157D7C;
+    color: #C7DDCC;
+    cursor: pointer;
+}
+
+.minor {
+    background-color: #157D7C; 
+    height: 2rem;
+    width: 3rem;
+    position: absolute;
+    margin-top: 19rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
+}
+
+.switch {
+    color:#157D7C;
+}
+.switch:hover {
+    color: #C7DDCC;
+    cursor: pointer;
 }

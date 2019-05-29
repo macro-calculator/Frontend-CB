@@ -34,9 +34,9 @@ class OnBoard extends Component {
     });
   };
   switchSign = e => {
-      e.preventDefault();
-      this.setState({signIn: !this.state.signIn})
-  }
+    e.preventDefault();
+    this.setState({ signIn: !this.state.signIn });
+  };
   registerUser = e => {
     e.preventDefault();
     const {
@@ -54,27 +54,36 @@ class OnBoard extends Component {
     newUser.age = Number(age);
     newUser.height = Number(height) / 12;
     newUser.weight = Number(weight);
-    console.log("register", newUser);
-    console.log("TODO: log user in");
+    console.log("newUser", newUser);
+    console.log("TODO: connect to register backend");
+    console.log("TODO: connect to backend login")
     console.log("TODO: push to protected dashboard");
+  };
+  signIn = e => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    const user = { username, password };
+    console.log("user", user)
+    console.log("TODO: connect to backend login");
   };
   render() {
     return (
-      <div className="OnBoard container">
-        {this.state.signIn?
-        <SignIn
-        handleChanges={this.handleChange}
-          state={this.state}
-          switchSign={this.switchSign} />
-          :
+      <div className="OnBoard">
+        {this.state.signIn ? (
+          <SignIn
+            handleChanges={this.handleChange}
+            state={this.state}
+            switchSign={this.switchSign}
+            signIn={this.signIn}
+          />
+        ) : (
           <SignUp
-          handleChanges={this.handleChange}
-          addUser={this.registerUser}
-          state={this.state}
-        />
-    }
-        
-        
+            handleChanges={this.handleChange}
+            addUser={this.registerUser}
+            state={this.state}
+            switchSign={this.switchSign}
+          />
+        )}
       </div>
     );
   }

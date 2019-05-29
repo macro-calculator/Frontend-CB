@@ -85,14 +85,15 @@ const SignUp = props => {
               handleChanges={props.handleChanges}
               goal={props.state.goal}
             />
-            <br />
-            <br />
-            <button onClick={props.addUser}>Sign Up</button>
-            <br />
-            <br />
-            Already have an account?<br/>
-            <button onClick={props.switchSign}>Log In</button>
+            <br /> 
           </form>
+
+          <p class="switch" onClick={props.switchSign}>Already have an account?</p>
+          <br /><br />
+          <button onClick={props.addUser} className="signup-btn">
+            Sign Up
+          </button>
+          <br />
         </div>
       </div>
     </div>

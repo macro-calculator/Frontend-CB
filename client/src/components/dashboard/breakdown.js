@@ -32,21 +32,32 @@
 // This is the total grams you’d recommend to the user.
 
 // == Dependencies ==//
-import React from "react";
+import React, { Component } from "react";
 import CurrentGoal from "./currentGoal";
-import Recommended from "./recommended"
+import EditGoal from "./editGoal";
+import Recommended from "./recommended";
 // == Style == //
-import Card from '@material-ui/core/Card';
+import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
-function Breakdown() {
-  return <div className="Breakdown">
-      <h2>Breakdown</h2>
-      <div className="card-container">
-        <Recommended />
-        <CurrentGoal />
+class Breakdown extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editGoal: false
+    };
+  }
+  render() {
+    return (
+      <div className="Breakdown">
+        <h2>Breakdown</h2>
+        <div className="card-container">
+          <Recommended />
+          {this.state.editGoal ? <EditGoal /> : <CurrentGoal />}
         </div>
       </div>
+    );
+  }
 }
 
 export default Breakdown;

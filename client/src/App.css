@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: #172328;
+  height: 100vh;
 }
 
 h2, h3, h4, h5 {

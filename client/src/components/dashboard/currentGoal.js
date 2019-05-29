@@ -2,11 +2,19 @@
 // == Dependencies ==//
 import React from "react";
 // == Style == //
-import Card from '@material-ui/core/Card';
+import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
 function Goal() {
-  return <div className="Goal"><h3>Current Goal</h3><div className="card">I am the Goal component.</div></div>;
+  return (
+    <div className="Goal">
+      <h3>Current Goal</h3>
+      <div className="card">
+        <div>I am the Goal component.</div>
+        <button className="minor">Edit</button>
+      </div>
+    </div>
+  );
 }
 
 export default Goal;
