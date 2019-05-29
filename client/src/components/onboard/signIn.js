@@ -5,10 +5,25 @@
 // == Dependencies == //
 import React from "react";
 // == Style == //
-import Card from '@material-ui/core/Card';
+import "../../cards.css";
 
 function SignIn() {
-  return <div className="SignIn">I am the SignIn component.</div>;
+  return (
+    <div className="SignIn">
+         <h2>Sign In</h2>
+      <div className="card">
+      
+       <form>
+           Username<br/>
+           <input/><br/><br/>
+           Password<br/>
+           <input/><br/><br/>
+           <button>Sign In</button><br/><br/>
+           <button>Or Create an Account</button>
+       </form>
+      </div>
+    </div>
+  );
 }
 
 export default SignIn;

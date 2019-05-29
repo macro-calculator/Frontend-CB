@@ -3,9 +3,10 @@
 import React from "react";
 // == Style == //
 import Card from '@material-ui/core/Card';
+import "../../cards.css";
 
 function Goal() {
-  return <div className="Goal"><Card>I am the Goal component.</Card></div>;
+  return <div className="Goal"><div className="card">I am the Goal component.</div></div>;
 }
 
 export default Goal;

@@ -35,9 +35,10 @@
 import React from "react";
 // == Style == //
 import Card from '@material-ui/core/Card';
+import "../../cards.css";
 
 function Breakdown() {
-  return <div className="Breakdown"><Card>I am the Breakdown component.</Card></div>;
+  return <div className="Breakdown"><div className="card">I am the Breakdown component.</div></div>;
 }
 
 export default Breakdown;

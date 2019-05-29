@@ -12,15 +12,9 @@ import "../../App.css";
 
 function OnBoard() {
   return (
-    <div className="OnBoard">
-
-  
-        Onboard Top
-        <SignIn />
+    <div className="OnBoard container">
+        {/* <SignIn /> */}
         <SignUp />
-        <br/>OnBoard Bottom
-
- 
     </div>
   );
 }

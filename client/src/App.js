@@ -14,7 +14,6 @@ function App() {
     <div className="App">
    <Container>
       <Navbar />
-      I am the App component.
     </Container>
       <Switch>
         <Route path="/sign" component={OnBoard} />

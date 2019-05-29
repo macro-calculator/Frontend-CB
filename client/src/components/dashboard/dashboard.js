@@ -11,16 +11,14 @@ import Breakdown from "./breakdown";
 import Meals from "../meals/meals";
 // == Style == //
 import Container from '@material-ui/core/Container';
+import "../../cards.css";
 
 function Dashboard() {
   return (
-    <div className="Dashboard">
-    <Container>
-      I am the Dashboard component.
+    <div className="Dashboard container">
       <Breakdown />
       {/* <Goal /> */}
-      <Meals />
-      </Container>
+      {/* <Meals /> */}
     </div>
   );
 }

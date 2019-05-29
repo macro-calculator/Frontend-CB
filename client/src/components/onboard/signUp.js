@@ -17,12 +17,41 @@
 import React from "react";
 // == Style == //
 import Card from "@material-ui/core/Card";
+import "../../cards.css";
 
 function SignUp() {
   return (
     <div className="SignUp">
-      I am the SignUp Side A.<br/><br/><br/>Side A.
-      I am the SignUp Side B.
+       
+        <h2>Sign Up</h2>
+        <div className="card-container">
+         <div className="card">
+       <form>
+           Username<br/>
+           <input/><br/><br/>
+           Password<br/>
+           <input/><br/><br/>
+           Email<br/>
+           <input/><br/><br/>
+           Age<br/>
+           <input/><br/><br/>
+       </form>
+      </div>
+      <div className="card">
+       <form>
+           Gender<br/>
+           <input/><br/><br/>
+           Height<br/>
+           <input/><br/><br/>
+           Weight<br/>
+           <input/><br/><br/>
+           Activity Level<br/>
+           <input/><br/><br/>
+           Goal<br/>
+           <input/><br/><br/>
+       </form>
+      </div>
+    </div>
     </div>
   );
 }
