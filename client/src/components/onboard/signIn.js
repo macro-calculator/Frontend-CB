@@ -8,7 +8,7 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 
 function SignIn() {
-  return <div className="SignIn"><Card>I am the SignIn component.</Card></div>;
+  return <div className="SignIn">I am the SignIn component.</div>;
 }
 
 export default SignIn;

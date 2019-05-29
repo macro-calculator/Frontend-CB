@@ -21,8 +21,8 @@ import Card from "@material-ui/core/Card";
 function SignUp() {
   return (
     <div className="SignUp">
-      <Card>I am the SignUp Side A.</Card>
-      <Card>I am the SignUp Side B.</Card>
+      I am the SignUp Side A.<br/><br/><br/>Side A.
+      I am the SignUp Side B.
     </div>
   );
 }
