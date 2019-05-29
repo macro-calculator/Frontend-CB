@@ -33,12 +33,20 @@
 
 // == Dependencies ==//
 import React from "react";
+import CurrentGoal from "./currentGoal";
+import Recommended from "./recommended"
 // == Style == //
 import Card from '@material-ui/core/Card';
 import "../../cards.css";
 
 function Breakdown() {
-  return <div className="Breakdown"><div className="card">I am the Breakdown component.</div></div>;
+  return <div className="Breakdown">
+      <h2>Breakdown</h2>
+      <div className="card-container">
+        <Recommended />
+        <CurrentGoal />
+        </div>
+      </div>
 }
 
 export default Breakdown;

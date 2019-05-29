@@ -13,11 +13,3 @@
 .OnBoard {
     border: 2px solid purple;
 }
-
-.container {
-    width: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}

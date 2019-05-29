@@ -35,12 +35,12 @@ function SignUp() {
            <input/><br/><br/>
            Age<br/>
            <input/><br/><br/>
+           Gender<br/>
+           <input/>\
        </form>
       </div>
       <div className="card">
        <form>
-           Gender<br/>
-           <input/><br/><br/>
            Height<br/>
            <input/><br/><br/>
            Weight<br/>
@@ -49,6 +49,7 @@ function SignUp() {
            <input/><br/><br/>
            Goal<br/>
            <input/><br/><br/>
+           <button>Sign Up</button>
        </form>
       </div>
     </div>

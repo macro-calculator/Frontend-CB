@@ -25,11 +25,22 @@
 
 // == Dependencies == //
 import React from "react";
+// == Components == //
+import CurrentMeals from "./currentMeals";
+import MealsInfo from "./mealsInfo";
 // == Style == //
 import "../../cards.css";
 
 function Meals() {
-  return <div className="Meals"><div className="card">I am the Meals component.</div></div>;
+  return (
+    <div className="Meals">
+        <h2>Meals</h2>
+      <div className="card-container">
+        <MealsInfo />
+        <CurrentMeals />
+      </div>
+    </div>
+  );
 }
 
 export default Meals;

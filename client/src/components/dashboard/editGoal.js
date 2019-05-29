@@ -5,8 +5,8 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import "../../cards.css";
 
-function Goal() {
-  return <div className="Goal"><div className="card">I am the Goal component.</div></div>;
+function EditGoal() {
+  return <div className="EditGoal"><h3>Edit Goal</h3><div className="card">I am the EditGoal component.</div></div>;
 }
 
-export default Goal;
+export default EditGoal;
