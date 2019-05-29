@@ -15,41 +15,71 @@
 
 // == Dependencies == //
 import React from "react";
+// == Components ==//
 // == Style == //
 import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
-function SignUp() {
+const SignUp = props => {
+    console.log("state:", props.state)
   return (
     <div className="SignUp">
        
         <h2>Sign Up</h2>
         <div className="card-container">
          <div className="card">
-       <form>
+       <form onSubmit={props.addUser}>
            Username<br/>
-           <input/><br/><br/>
+           <input
+           name="username"
+           value={props.state.username}
+           onChange={props.handleChanges}
+        /><br/><br/>
            Password<br/>
-           <input/><br/><br/>
+           <input
+           name="password"
+           value={props.state.password}
+           onChange={props.handleChanges}/><br/><br/>
            Email<br/>
-           <input/><br/><br/>
+           <input
+           name="email"
+           value={props.state.email}
+           onChange={props.handleChanges}/><br/><br/>
            Age<br/>
-           <input/><br/><br/>
+           <input
+           name="age"
+           value={props.state.age}
+           onChange={props.handleChanges}/><br/><br/>
            Gender<br/>
-           <input/>\
+           <input
+           name="gender"
+           value={props.state.gender}
+           onChange={props.handleChanges}/>\
        </form>
       </div>
       <div className="card">
        <form>
            Height<br/>
-           <input/><br/><br/>
+           <input
+           name="height"
+           value={props.state.height}
+           onChange={props.handleChanges}/><br/><br/>
            Weight<br/>
-           <input/><br/><br/>
+           <input
+           name="weight"
+           value={props.state.weight}
+           onChange={props.handleChanges}/><br/><br/>
            Activity Level<br/>
-           <input/><br/><br/>
+           <input
+           name="activityLevel"
+           value={props.state.activityLevel}
+           onChange={props.handleChanges}/><br/><br/>
            Goal<br/>
-           <input/><br/><br/>
-           <button>Sign Up</button>
+           <input
+           name="goal"
+           value={props.state.goal}
+           onChange={props.handleChanges}/><br/><br/>
+           <button onClick={props.addUser}>Sign Up</button>
        </form>
       </div>
     </div>
