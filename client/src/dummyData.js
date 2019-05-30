@@ -1,4 +1,5 @@
 export const dummyUser = {
+    name: "Casey",
     username: "abravebee",
     password: "password123",
     email: "bee@gmail.com",

@@ -14,6 +14,12 @@ const SignUp = props => {
       <div className="card-container">
         <div className="card">
           <form onSubmit={props.addUser}>
+          <h4>Name</h4>
+            <input
+              name="name"
+              value={props.state.name}
+              onChange={props.handleChanges}
+            />
             <h4>Username</h4>
             <input
               name="username"
@@ -44,7 +50,7 @@ const SignUp = props => {
               value={props.state.gender}
               onChange={props.handleChanges}
             >
-              <option />
+            <option />
               <option value={"M"}>M</option>
               <option value={"F"}>F</option>
             </select>
@@ -52,6 +58,8 @@ const SignUp = props => {
         </div>
         <div className="card">
           <form>
+            
+              
             <h4>Height</h4>
             <HeightDropDown
               handleChanges={props.handleChanges}

@@ -8,13 +8,14 @@ import SignUp from "./signUp";
 
 // == Style == //
 import "../../App.css";
-import axios from "axios";
+import axios from 'axios'
 
 class OnBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       signIn: true,
+      name: "",
       username: "",
       password: "",
       email: "",
@@ -39,6 +40,7 @@ class OnBoard extends Component {
   registerUser = e => {
     e.preventDefault();
     const {
+        name,
       username,
       password,
       email,
@@ -49,7 +51,7 @@ class OnBoard extends Component {
       activitylevel,
       goal
     } = this.state;
-    const newUser = { username, password, email, gender, activitylevel, goal };
+    const newUser = {name, username, password, email, gender, activitylevel, goal };
     newUser.age = Number(age);
     newUser.height = Number(height) / 12;
     newUser.currentweight = Number(currentweight);
@@ -63,22 +65,24 @@ class OnBoard extends Component {
       .then(res=>console.log(res.data))
       .catch(err=>console.dir(err));
     console.log("TODO: connect to backend login");
-    console.log("TODO: push to protected dashboard");
+    
   };
   signIn = e => {
     e.preventDefault();
     const { username, password } = this.state;
     const user = { username, password };
-    /*axios.post(`URL`,  `grant_type=password&username=${username}&password=${password}`, {
+    axios.post(`https://lambda-macro-calculator.herokuapp.com/oauth/token`,  `grant_type=password&username=${username}&password=${password}`, {
         headers: {
-            Authorization: '',
+            Authorization: `Base ${btoa('lambda-client:lambda-secret')}`,
            'Content-Type': 'application/x-www-form-urlencoded'
     }
     })
     .then(res=>console.log(res.data))
-    .catch(err=>console.dir(err))*/
+    .catch(err=>console.dir(err))
     console.log("user", user);
     console.log("TODO: connect to backend login");
+    console.log("TODO: set token on localStorage")
+    console.log("TODO: push to protected dashboard");
   };
   render() {
     return (
