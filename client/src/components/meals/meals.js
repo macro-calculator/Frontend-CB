@@ -25,11 +25,22 @@
 
 // == Dependencies == //
 import React from "react";
+// == Components == //
+import CurrentMeals from "./currentMeals";
+import MealsInfo from "./mealsInfo";
 // == Style == //
-import Card from '@material-ui/core/Card';
+import "../../cards.css";
 
 function Meals() {
-  return <div className="Meals"><Card>I am the Meals component.</Card></div>;
+  return (
+    <div className="Meals">
+        <h2>Meals</h2>
+      <div className="card-container">
+        <MealsInfo />
+        <CurrentMeals />
+      </div>
+    </div>
+  );
 }
 
 export default Meals;

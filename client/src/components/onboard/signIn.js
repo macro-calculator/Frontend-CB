@@ -4,11 +4,36 @@
 
 // == Dependencies == //
 import React from "react";
+// == Components == //
 // == Style == //
-import Card from '@material-ui/core/Card';
+import "../../cards.css";
 
-function SignIn() {
-  return <div className="SignIn">I am the SignIn component.</div>;
-}
+const SignIn = props => {
+  return (
+    <div className="SignIn">
+      <h2>Sign In</h2>
+      <div className="card">
+        <form onSubmit={props.signIn}>
+          <h4>Username</h4>
+          <input
+            name="username"
+            value={props.state.username}
+            onChange={props.handleChanges}
+          />
+          <h4>Password</h4>
+          <input
+            name="password"
+            value={props.state.password}
+            onChange={props.handleChanges}
+          />
+          <br /> 
+        </form>
+          <p class="switch" onClick={props.switchSign}>Don't have an account yet?</p>
+          <br />
+          <button onClick={props.signIn}>Sign In</button>
+      </div>
+    </div>
+  );
+};
 
 export default SignIn;
