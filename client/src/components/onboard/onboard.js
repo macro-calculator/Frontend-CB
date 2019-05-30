@@ -7,23 +7,23 @@ import SignIn from "./signIn";
 import SignUp from "./signUp";
 
 // == Style == //
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
 import "../../App.css";
+import axios from 'axios'
 
 class OnBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       signIn: true,
+      name: "",
       username: "",
       password: "",
       email: "",
       gender: "",
       age: "",
       height: "",
-      weight: "",
-      activityLevel: "",
+      currentweight: "",
+      activitylevel: "",
       goal: ""
     };
   }
@@ -40,31 +40,49 @@ class OnBoard extends Component {
   registerUser = e => {
     e.preventDefault();
     const {
+        name,
       username,
       password,
       email,
       gender,
       age,
       height,
-      weight,
-      activityLevel,
+      currentweight,
+      activitylevel,
       goal
     } = this.state;
-    const newUser = { username, password, email, gender, activityLevel, goal };
+    const newUser = {name, username, password, email, gender, activitylevel, goal };
     newUser.age = Number(age);
     newUser.height = Number(height) / 12;
-    newUser.weight = Number(weight);
+    newUser.currentweight = Number(currentweight);
     console.log("newUser", newUser);
     console.log("TODO: connect to register backend");
-    console.log("TODO: connect to backend login")
-    console.log("TODO: push to protected dashboard");
+    axios
+      .post(
+        `https://lambda-macro-calculator.herokuapp.com/users/create`,
+        newUser
+      )
+      .then(res=>console.log(res.data))
+      .catch(err=>console.dir(err));
+    console.log("TODO: connect to backend login");
+    
   };
   signIn = e => {
     e.preventDefault();
     const { username, password } = this.state;
     const user = { username, password };
-    console.log("user", user)
+    axios.post(`https://lambda-macro-calculator.herokuapp.com/oauth/token`,  `grant_type=password&username=${username}&password=${password}`, {
+        headers: {
+            Authorization: `Base ${btoa('lambda-client:lambda-secret')}`,
+           'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    })
+    .then(res=>console.log(res.data))
+    .catch(err=>console.dir(err))
+    console.log("user", user);
     console.log("TODO: connect to backend login");
+    console.log("TODO: set token on localStorage")
+    console.log("TODO: push to protected dashboard");
   };
   render() {
     return (

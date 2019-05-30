@@ -4,15 +4,15 @@ function GoalDropDown(props) {
   return (
     <select name="goal" value={props.goal} onChange={props.handleChanges}>
       <option />
-      <option value={"20% deficit"}>
+      <option value={"aggressive weight loss"}>
         aggressive weight loss (20% deficit)
       </option>
-      <option value={"15% deficit"}>moderate weight loss (15% deficit)</option>
-      <option value={"10% deficit"}>weight loss (10% deficit)</option>
-      <option value={"maintain"}>maintain weight</option>
-      <option value={"10% surplus"}>moderate weight gain (10% surplus)</option>
-      <option value={"20% surplus"}>
-        aggressive weight gain (15% deficit)
+      <option value={"moderate weight loss"}>moderate weight loss (15% deficit)</option>
+      <option value={"weight loss"}>weight loss (10% deficit)</option>
+      <option value={"maintain weight"}>maintain weight</option>
+      <option value={"moderate weight gain"}>moderate weight gain (10% surplus)</option>
+      <option value={"aggressive weight gain"}>
+        aggressive weight gain (15% surplus)
       </option>
     </select>
   );

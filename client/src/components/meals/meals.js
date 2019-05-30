@@ -24,23 +24,61 @@
 //that’s how many grams of each you should have per meal.
 
 // == Dependencies == //
-import React from "react";
+import React, { Component } from "react";
 // == Components == //
 import CurrentMeals from "./currentMeals";
 import MealsInfo from "./mealsInfo";
+import EditMeals from "./editMeals";
 // == Style == //
 import "../../cards.css";
 
-function Meals() {
-  return (
-    <div className="Meals">
-        <h2>Meals</h2>
-      <div className="card-container">
-        <MealsInfo />
-        <CurrentMeals />
+class Meals extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editMeal: false,
+      mealsChoice: "",
+      currentMealChoice: ""
+    };
+  }
+  editSwitch = e => {
+    e.preventDefault();
+    this.setState({ editMeal: !this.state.editMeal });
+  };
+  editMeals = e => {
+    let newMeals = this.state.mealsChoice;
+    console.log("newMeals: ", newMeals)
+    this.editSwitch(e);
+  }
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  render() {
+    return (
+      <div className="Meals">
+        <div className="card-container">
+          <MealsInfo />
+          {this.state.editMeal ? (
+            <EditMeals
+              handleChange={this.handleChange}
+              state={this.state}
+              editSwitch={this.editSwitch}
+              editMeals={this.editMeals}
+            />
+          ) : (
+            <CurrentMeals
+              handleChange={this.handleChange}
+              state={this.state}
+              editSwitch={this.editSwitch}
+            />
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Meals;
