@@ -5,9 +5,9 @@ export const dummyUser = {
     gender: "F",
     age: 26,
     height: 67,
-    weight: 120,
-    activityLevel: "0",
-    goal: "maintain",
+    currentweight: 120,
+    activitylevel: "0",
+    goal: "maintain weight",
     mealChoice: "3,2"
 }
 

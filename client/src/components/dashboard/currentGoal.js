@@ -4,39 +4,44 @@ import React from "react";
 // == Style == //
 import "../../cards.css";
 
-function Goal(props) {
-  console.log('props.state', props.state)
+const Goal = (props) => {
+  console.log("props.state", props.state);
   let goal = props.state.user.goal;
-  let verb = "null";
-  let percent = "null";
-  let noun = "null";
-  if (goal) {
-    if (goal.includes("deficit")) {
-      verb = "lose";
-      percent = goal.split(" ")[0];
-      noun = "deficit";
-    } else if (goal.includes("maintain")) {
-      verb = "maintain";
-      percent = "maintanence";
-      noun = "diet";
-    } else if (goal.includes("surplus")) {
-      verb = "gain";
-      percent = goal.split(" ")[0];
-      noun = "surplus";
-    }
+  console.log("goal: ", goal)
+  let diet;
+  switch (goal) {
+    case "aggressive weight loss":
+      diet = "20% deficit";
+      break;
+    case "moderate weight loss":
+      diet = "15% deficit";
+      break;
+    case "weight loss":
+      diet = "10% deficit";
+      break;
+    case "maintain weight":
+      diet = "maintenance diet";
+      break;
+    case "moderate weight gain":
+      diet = "10% surplus";
+      break;
+    case "aggressive weight gain":
+      diet = "15% surplus";
+      break;
+    default:
+      diet = "mystery diet";
   }
-  console.log(verb, percent, noun);
   return (
     <div className="Goal">
       <h3>Current Goal</h3>
       <div className="card">
         {goal ? (
           <p>
-            You are currently eating to
-            <h4>{verb} weight</h4>
+            Your current goal is
+            <h4>{goal}</h4>
             with a
             <h4>
-              {percent} {noun}
+              {diet}
             </h4>
           </p>
         ) : (

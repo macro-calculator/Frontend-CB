@@ -8,6 +8,7 @@ import SignUp from "./signUp";
 
 // == Style == //
 import "../../App.css";
+import axios from "axios";
 
 class OnBoard extends Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class OnBoard extends Component {
       gender: "",
       age: "",
       height: "",
-      weight: "",
-      activityLevel: "",
+      currentweight: "",
+      activitylevel: "",
       goal: ""
     };
   }
@@ -44,24 +45,39 @@ class OnBoard extends Component {
       gender,
       age,
       height,
-      weight,
-      activityLevel,
+      currentweight,
+      activitylevel,
       goal
     } = this.state;
-    const newUser = { username, password, email, gender, activityLevel, goal };
+    const newUser = { username, password, email, gender, activitylevel, goal };
     newUser.age = Number(age);
     newUser.height = Number(height) / 12;
-    newUser.weight = Number(weight);
+    newUser.currentweight = Number(currentweight);
     console.log("newUser", newUser);
     console.log("TODO: connect to register backend");
-    console.log("TODO: connect to backend login")
+    axios
+      .post(
+        `https://lambda-macro-calculator.herokuapp.com/users/create`,
+        newUser
+      )
+      .then(res=>console.log(res.data))
+      .catch(err=>console.dir(err));
+    console.log("TODO: connect to backend login");
     console.log("TODO: push to protected dashboard");
   };
   signIn = e => {
     e.preventDefault();
     const { username, password } = this.state;
     const user = { username, password };
-    console.log("user", user)
+    /*axios.post(`URL`,  `grant_type=password&username=${username}&password=${password}`, {
+        headers: {
+            Authorization: '',
+           'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    })
+    .then(res=>console.log(res.data))
+    .catch(err=>console.dir(err))*/
+    console.log("user", user);
     console.log("TODO: connect to backend login");
   };
   render() {

@@ -59,14 +59,14 @@ const SignUp = props => {
             />
             <h4>Current Weight (lbs)</h4>
             <input
-              name="weight"
-              value={props.state.weight}
+              name="currentweight"
+              value={props.state.currentweight}
               onChange={props.handleChanges}
             />
             <h4>How many days per week do you exercise?</h4>
             <ActivityDropDown
               handleChanges={props.handleChanges}
-              activityLevel={props.state.activityLevel}
+              activitylevel={props.state.activitylevel}
             />
             <h4>What are your weight goals?</h4>
             <GoalDropDown

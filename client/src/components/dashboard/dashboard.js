@@ -24,8 +24,8 @@ class Dashboard extends Component {
         gender: "",
         age: 0,
         height: 0,
-        weight: 0,
-        activityLevel: "",
+        currentweight: 0,
+        activitylevel: "",
         goal: "",
         mealChoice: ""
       },
