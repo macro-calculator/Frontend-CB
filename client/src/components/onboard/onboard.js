@@ -7,8 +7,6 @@ import SignIn from "./signIn";
 import SignUp from "./signUp";
 
 // == Style == //
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
 import "../../App.css";
 
 class OnBoard extends Component {

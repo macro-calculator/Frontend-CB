@@ -37,27 +37,39 @@ import CurrentGoal from "./currentGoal";
 import EditGoal from "./editGoal";
 import Recommended from "./recommended";
 // == Style == //
-import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
 class Breakdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editGoal: false
+      editGoal: false,
+      goal: '10% surplus',
+      currentGoal: '10% surplus'
     };
   }
+  editSwitch = e => {
+    e.preventDefault();
+    this.setState({editGoal: !this.state.editGoal})
+  }
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   render() {
     return (
       <div className="Breakdown">
         <h2>Breakdown</h2>
         <div className="card-container">
           <Recommended />
-          {this.state.editGoal ? <EditGoal /> : <CurrentGoal />}
+          {this.state.editGoal ? <EditGoal handleChange={this.handleChange} state={this.state} editSwitch={this.editSwitch}/> : <CurrentGoal state={this.state} editSwitch={this.editSwitch}/>}
         </div>
       </div>
     );
-  }
 }
+  }
+
 
 export default Breakdown;

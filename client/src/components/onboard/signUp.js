@@ -1,18 +1,3 @@
-// // models should look something like this
-// // USER
-// {
-//     gender: string
-//     age: int
-//     height: int // converted on frontend
-//     currentweight: int
-//     name: string
-//     email: string
-//     password: string
-//     activitylevel:string
-//     goal: string
-
-// }
-
 // == Dependencies == //
 import React from "react";
 // == Components ==//
@@ -20,7 +5,6 @@ import HeightDropDown from "./height";
 import ActivityDropDown from "./activity";
 import GoalDropDown from "./goal";
 // == Style == //
-import Card from "@material-ui/core/Card";
 import "../../cards.css";
 
 const SignUp = props => {
@@ -55,11 +39,15 @@ const SignUp = props => {
               onChange={props.handleChanges}
             />
             <h4>Gender</h4>
-            <input
+            <select
               name="gender"
               value={props.state.gender}
               onChange={props.handleChanges}
-            />
+            >
+              <option />
+              <option value={"M"}>M</option>
+              <option value={"F"}>F</option>
+            </select>
           </form>
         </div>
         <div className="card">
@@ -85,11 +73,14 @@ const SignUp = props => {
               handleChanges={props.handleChanges}
               goal={props.state.goal}
             />
-            <br /> 
+            <br />
           </form>
 
-          <p class="switch" onClick={props.switchSign}>Already have an account?</p>
-          <br /><br />
+          <p class="switch" onClick={props.switchSign}>
+            Already have an account?
+          </p>
+          <br />
+          <br />
           <button onClick={props.addUser} className="signup-btn">
             Sign Up
           </button>

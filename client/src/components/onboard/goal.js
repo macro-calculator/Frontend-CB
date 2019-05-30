@@ -11,8 +11,8 @@ function GoalDropDown(props) {
       <option value={"10% deficit"}>weight loss (10% deficit)</option>
       <option value={"maintain"}>maintain weight</option>
       <option value={"10% surplus"}>moderate weight gain (10% surplus)</option>
-      <option value={"20% surplus"}>
-        aggressive weight gain (15% deficit)
+      <option value={"15% surplus"}>
+        aggressive weight gain (15% surplus)
       </option>
     </select>
   );

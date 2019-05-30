@@ -9,7 +9,6 @@ import React from "react";
 import Breakdown from "./breakdown";
 import Meals from "../meals/meals";
 // == Style == //
-import Container from '@material-ui/core/Container';
 import "../../cards.css";
 
 
@@ -17,7 +16,7 @@ function Dashboard() {
   return (
     <div className="Dashboard container">
       <Breakdown />
-      {/* <Meals /> */}
+      <Meals />
     </div>
   );
 }
