@@ -4,16 +4,11 @@ import React from "react";
 // == Style == //
 import "../../cards.css";
 
-function Recommended() {
-  let recommended = {
-    calories: 1300,
-    fat: 0,
-    protein: 0,
-    carbs: 0
-  };
+function Recommended(props) {
+  let recommended = props.state.macros;
   return (
     <div className="Recommended">
-      <h3>Your Recommended Macros</h3>
+      <h3>Your Recommended Daily Macros</h3>
       <div className="card">
         <table>
           <tr>
@@ -22,15 +17,15 @@ function Recommended() {
           </tr>
           <tr>
             <td><h4>Fat:</h4></td>
-            <td>{recommended.fat}</td>
+            <td>{recommended.fat}g</td>
           </tr>
           <tr>
             <td><h4>Carbs:</h4></td>
-            <td><p>{recommended.carbs}</p></td>
+            <td><p>{recommended.carbs}g</p></td>
           </tr>
           <tr>
             <td><h4>Protein:</h4></td>
-            <td><p>{recommended.protein}</p></td>
+            <td><p>{recommended.protein}g</p></td>
           </tr>
         </table>
       </div>

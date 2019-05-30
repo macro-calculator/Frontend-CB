@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: space-between;
     width: 20rem;
-    min-height: 10rem;
+    min-height: 15rem;
     height: auto;
     padding: 2rem;
     margin: 2rem;
@@ -100,7 +100,7 @@ button:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
 }
 
-.goal {
+/* .goal {
     margin-top: 10.5rem;
 }
 .meal {
@@ -109,10 +109,9 @@ button:hover {
 .sub {
     margin-top: 10rem;
 }
-
-
-
-
+.empty {
+    margin-top: 7rem;
+} */
 .cancel {
     margin-top: -3rem;
     margin-left: 9.5rem;

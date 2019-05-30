@@ -19,9 +19,9 @@ function Navbar() {
         <NavLink className="navlink" to={'/dashboard'}>
           <h3><span>Dashboard</span></h3>
         </NavLink>
-        <NavLink className="navlink" to={'/meals'}>
+        {/* <NavLink className="navlink" to={'/meals'}>
           <h3><span>Meals</span></h3>
-        </NavLink>
+        </NavLink> */}
         <NavLink className="navlink" to={'/settings'}>
           <h3><span>Settings</span></h3>
         </NavLink>

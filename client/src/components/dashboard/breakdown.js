@@ -44,14 +44,18 @@ class Breakdown extends Component {
     super(props);
     this.state = {
       editGoal: false,
-      goal: '10% surplus',
-      currentGoal: '10% surplus'
+      goal: ""
     };
   }
   editSwitch = e => {
     e.preventDefault();
-    this.setState({editGoal: !this.state.editGoal})
-  }
+    this.setState({ editGoal: !this.state.editGoal });
+  };
+  editGoal = e => {
+    let newGoal = this.state.goal;
+    console.log("newGoal: ", newGoal);
+    this.editSwitch(e);
+  };
   handleChange = e => {
     e.preventDefault();
     this.setState({
@@ -61,15 +65,27 @@ class Breakdown extends Component {
   render() {
     return (
       <div className="Breakdown">
-        <h2>Breakdown</h2>
+        <h2>Dashboard</h2>
+        <h3>Welcome {this.props.state.user.username}</h3>
         <div className="card-container">
-          <Recommended />
-          {this.state.editGoal ? <EditGoal handleChange={this.handleChange} state={this.state} editSwitch={this.editSwitch}/> : <CurrentGoal state={this.state} editSwitch={this.editSwitch}/>}
+          <Recommended state={this.props.state} />
+          {this.state.editGoal ? (
+            <EditGoal
+              handleChange={this.handleChange}
+              state={this.props.state}
+              editSwitch={this.editSwitch}
+              editGoal={this.editGoal}
+            />
+          ) : (
+            <CurrentGoal
+              state={this.props.state}
+              editSwitch={this.editSwitch}
+            />
+          )}
         </div>
       </div>
     );
-}
   }
-
+}
 
 export default Breakdown;

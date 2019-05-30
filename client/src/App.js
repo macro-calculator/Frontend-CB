@@ -23,7 +23,7 @@ class App extends Component {
         <Switch>
           <Route path="/sign" component={OnBoard} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/meals" component={Meals} />
+          {/* <Route path="/meals" component={Meals} /> */}
           <Route component={NotFound} />
         </Switch>
       </div>

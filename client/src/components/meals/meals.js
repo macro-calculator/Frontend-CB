@@ -37,7 +37,7 @@ class Meals extends Component {
     super(props);
     this.state = {
       editMeal: false,
-      mealChoice: "",
+      mealsChoice: "",
       currentMealChoice: ""
     };
   }
@@ -45,6 +45,11 @@ class Meals extends Component {
     e.preventDefault();
     this.setState({ editMeal: !this.state.editMeal });
   };
+  editMeals = e => {
+    let newMeals = this.state.mealsChoice;
+    console.log("newMeals: ", newMeals)
+    this.editSwitch(e);
+  }
   handleChange = e => {
     e.preventDefault();
     this.setState({
@@ -61,6 +66,7 @@ class Meals extends Component {
               handleChange={this.handleChange}
               state={this.state}
               editSwitch={this.editSwitch}
+              editMeals={this.editMeals}
             />
           ) : (
             <CurrentMeals

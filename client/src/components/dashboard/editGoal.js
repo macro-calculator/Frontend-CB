@@ -7,7 +7,7 @@ import GoalDropDown from "../onboard/goal";
 import "../../cards.css";
 
 function EditGoal(props) {
-  let currentGoal = props.state.currentGoal;
+  let currentGoal = props.state.user.goal;
   let verb = null;
   let percent = null;
   let noun = null;
@@ -17,7 +17,7 @@ function EditGoal(props) {
     noun = "deficit";
   } else if (currentGoal.includes("maintain")) {
     verb = "maintain";
-    percent = "maintanence";
+    percent = "maintenance";
     noun = "diet";
   } else if (currentGoal.includes("surplus")) {
     verb = "gain";
@@ -40,7 +40,7 @@ function EditGoal(props) {
           <h4>New Goal:</h4>
           <GoalDropDown
             handleChanges={props.handleChange}
-            goal={props.state.goal}
+            goal={props.state.newGoal}
           />
         </p>
         <button onClick={props.editGoal} className="minor sub">

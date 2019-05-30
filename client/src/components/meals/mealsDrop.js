@@ -3,8 +3,8 @@ import React from "react";
 function MealsDropDown(props) {
   return (
     <select
-      name="mealChoice"
-      value={props.mealChoice}
+      name="mealsChoice"
+      value={props.mealsChoice}
       onChange={props.handleChanges}
     >
       <option />
