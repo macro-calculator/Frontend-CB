@@ -91,7 +91,7 @@ class Dashboard extends Component {
         <h2>Dashboard</h2>
         <h3>Welcome, {this.state.user.name}</h3>
         <Breakdown state={this.state} />
-        <Meals state={this.state} />
+        <Meals state={this.state} macros={this.state.user.macros} />
       </div>
     );
   }

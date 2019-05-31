@@ -1,30 +1,7 @@
-// // RESPONSE FROM MEALS PAGE
-// {
-//     fats: int
-//     proteins: int
-//     carbs: int
-//     calories: int
-// }
-
-//User can select one of three choices:
-// 4 meals a day,
-// 3 meals a day,
-// or 3 meals and 2 snacks each day.
-// Once they click a choice, it will tell them
-// how many grams of fats, proteins, and carbs they need at each meal or snack.
-
-// 4 meals a day: take the grams of each p,f,c and divide by 4.
-//That’s how many grams of each they should eat per meal.
-
-// 3 meals a day: take the grams of each and divide by 3.
-
-// 3 meals and 2 snacks: Divide each macronutrient amount by 8,
-//that is how many per snack you should have.
-//Then multiply those numbers by 2,
-//that’s how many grams of each you should have per meal.
 
 // == Dependencies == //
 import React, { Component } from "react";
+import axios from 'axios'
 // == Components == //
 import CurrentMeals from "./currentMeals";
 import MealsInfo from "./mealsInfo";
@@ -40,9 +17,7 @@ class Meals extends Component {
     this.state = {
       editMeal: false,
       mealChoice: "",
-      mealMacs: {
-
-      }
+      macros: {}
     };
   }
   componentDidMount() {
@@ -59,17 +34,25 @@ class Meals extends Component {
     }
   }
   fetchMeals() {
-    this.setState({...this.state, mealMacs: dummyMealMacs, mealChoice: dummyUser.mealChoice })
+    this.setState({...this.state, macros: this.props.macros})
+   
+    // this.setState({...this.state, mealMacs: dummyMealMacs, mealChoice: dummyUser.mealChoice })
   }
   editSwitch = e => {
     e.preventDefault();
     this.setState({ editMeal: !this.state.editMeal });
   };
   editMeals = e => {
-    let newMeals = this.state.mealsChoice;
-    dummyUser.mealChoice = newMeals
-    console.log("newMeals: ", newMeals)
-    this.setState({...this.state, mealChoice:dummyUser.mealChoice})
+    let newMeals = {...this.props.state.user, macros: this.state.macros}
+    axios
+     .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newMeals, {
+       headers: {
+           Authorization: `Bearer ${localStorage.getItem('token')}`
+       }
+     })
+     .then(res => this.setState({...this.state, user: res.data}))
+     .catch(err => console.dir(err));
+    // this.setState({...this.state, mealChoice:dummyUser.mealChoice})
     this.editSwitch(e);
   }
   handleChange = e => {
@@ -79,10 +62,11 @@ class Meals extends Component {
     });
   };
   render() {
+      console.log("meals state :", this.state)
     return (
       <div className="Meals">
         <div className="card-container">
-          <MealsInfo recommended={this.state.mealMacs}/>
+          <MealsInfo recommended={this.state.macros}/>
           {this.state.editMeal ? (
             <EditMeals
               handleChange={this.handleChange}
