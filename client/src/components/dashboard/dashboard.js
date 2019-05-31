@@ -18,25 +18,34 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        token: '',
       user: {
-        name: "",
+        userid: null,
         username: "",
-        password: "",
         email: "",
         gender: "",
-        age: 0,
-        height: 0,
-        currentweight: 0,
+        age: null,
+        height: null,
+        currentweight: null,
+        name: "",
         activitylevel: "",
         goal: "",
-        mealChoice: ""
-      },
-      macros: {
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0
-      }
+        macros: {
+            macroid: null,
+            inches: null,
+            protein: null,
+            carb: null,
+            fat: null,
+            calories: null,
+            meals: "",
+            proteinPerMeal: null,
+            fatsPerMeal: null,
+            carbsPerMeal: null,
+            proteinPerSnack: null,
+            fatsPerSnack: null,
+            carbsPerSnack: null
+        }
+    }
     };
   }
   componentDidMount() {
@@ -48,7 +57,9 @@ class Dashboard extends Component {
       console.log("no item");
       this.props.history.replace("/sign");
     } else {
-      this.fetchUserData();
+        this.setState({...this.state, token: localStorage.getItem("token")})
+        this.fetchUserData()
+      
     }
   }
   componentDidUpdate(prevProps) {
@@ -66,14 +77,15 @@ class Dashboard extends Component {
     axios
       .get(`https://lambda-macro-calculator.herokuapp.com/users/current`, {
         headers: {
-            Authorization: `${localStorage.getItem('token')}`
+            Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
-      .then()
-      .catch();
+      .then(res => this.setState({...this.state, user: res.data}))
+      .catch(err => console.dir(err));
     //this.setState({ ...this.state, user: dummyUser, macros: dummyMacros });
   }
   render() {
+      console.log("Dashboard state: ", this.state)
     return (
       <div className="Dashboard">
         <h2>Dashboard</h2>

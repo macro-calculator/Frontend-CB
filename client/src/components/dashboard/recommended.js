@@ -5,7 +5,7 @@ import React from "react";
 import "../../cards.css";
 
 function Recommended(props) {
-  let recommended = props.state.macros;
+  let recommended = props.state.user.macros;
   return (
     <div className="Recommended">
       <h3>Your Recommended Daily Macros</h3>
@@ -22,7 +22,7 @@ function Recommended(props) {
           </tr>
           <tr>
             <td><h4>Carbs:</h4></td>
-            <td><p>{recommended.carbs}g</p></td>
+            <td><p>{recommended.carb}g</p></td>
           </tr>
           <tr>
             <td><h4>Protein:</h4></td>
