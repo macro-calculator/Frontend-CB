@@ -31,15 +31,35 @@ import MealsInfo from "./mealsInfo";
 import EditMeals from "./editMeals";
 // == Style == //
 import "../../cards.css";
+// == Data == //
+import {dummyUser, dummyMacros, dummyMealMacs} from '../../dummyData'
 
 class Meals extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editMeal: false,
-      mealsChoice: "",
-      currentMealChoice: ""
+      mealChoice: "",
+      mealMacs: {
+
+      }
     };
+  }
+  componentDidMount() {
+    //check if user is authenticated
+    //if not, redirect to log-in page
+    //if so, fetch data
+    console.log("componentDidMount");
+    this.fetchMeals()
+  }
+  componentDidUpdate(prevProps) {
+    console.log("componentDidUpdate");
+    if (this.props !== prevProps) {
+      this.fetchMeals()
+    }
+  }
+  fetchMeals() {
+    this.setState({...this.state, mealMacs: dummyMealMacs, mealChoice: dummyUser.mealChoice })
   }
   editSwitch = e => {
     e.preventDefault();
@@ -47,7 +67,9 @@ class Meals extends Component {
   };
   editMeals = e => {
     let newMeals = this.state.mealsChoice;
+    dummyUser.mealChoice = newMeals
     console.log("newMeals: ", newMeals)
+    this.setState({...this.state, mealChoice:dummyUser.mealChoice})
     this.editSwitch(e);
   }
   handleChange = e => {
@@ -60,7 +82,7 @@ class Meals extends Component {
     return (
       <div className="Meals">
         <div className="card-container">
-          <MealsInfo />
+          <MealsInfo recommended={this.state.mealMacs}/>
           {this.state.editMeal ? (
             <EditMeals
               handleChange={this.handleChange}

@@ -5,7 +5,7 @@ import { withRouter, Route, Switch } from "react-router-dom";
 // == Components == //
 import OnBoard from "./components/onboard/onboard";
 import Dashboard from "./components/dashboard/dashboard";
-import Meals from "./components/meals/meals";
+//import Meals from "./components/meals/meals";
 import NotFound from "./NotFound";
 import Navbar from "./Navbar";
 

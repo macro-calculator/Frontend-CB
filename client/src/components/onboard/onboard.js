@@ -8,7 +8,7 @@ import SignUp from "./signUp";
 
 // == Style == //
 import "../../App.css";
-import axios from 'axios'
+import axios from "axios";
 
 class OnBoard extends Component {
   constructor(props) {
@@ -40,48 +40,76 @@ class OnBoard extends Component {
   registerUser = e => {
     e.preventDefault();
     const {
-        name,
+      name,
       username,
       password,
       email,
       gender,
-      age,
-      height,
-      currentweight,
       activitylevel,
       goal
     } = this.state;
-    const newUser = {name, username, password, email, gender, activitylevel, goal };
-    newUser.age = Number(age);
-    newUser.height = Number(height) / 12;
-    newUser.currentweight = Number(currentweight);
+    let age = Number(this.state.age);
+    let height = Number(this.state.height);
+    let currentweight = Number(this.state.currentweight);
+    const newUser = {
+      username,
+      password,
+      gender,
+      email,
+      age,
+      height,
+      currentweight,
+      name,
+      activitylevel,
+      goal
+    };
+
     console.log("newUser", newUser);
     console.log("TODO: connect to register backend");
     axios
       .post(
         `https://lambda-macro-calculator.herokuapp.com/users/create`,
-        newUser
+        newUser,
+        /*`grant_type=password&username=${newUser.username}&password=${newUser.password}&gender=${newUser.gender}&email=${newUser.email}&age=${newUser.age}&height=${newUser.height}&currentweight=${newUser.currentweight}&name=${newUser.name}&activitylevel=${newUser.activitylevel}&goal=${newUser.goal}`,*/ {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
       )
-      .then(res=>console.log(res.data))
-      .catch(err=>console.dir(err));
+      .then(res => console.log(res.data))
+      .catch(err => console.dir(err));
     console.log("TODO: connect to backend login");
-    
+    this.signIn()
   };
   signIn = e => {
+    if(e){
     e.preventDefault();
+    }
+
     const { username, password } = this.state;
     const user = { username, password };
-    axios.post(`https://lambda-macro-calculator.herokuapp.com/oauth/token`,  `grant_type=password&username=${username}&password=${password}`, {
-        headers: {
-            Authorization: `Base ${btoa('lambda-client:lambda-secret')}`,
-           'Content-Type': 'application/x-www-form-urlencoded'
-    }
-    })
-    .then(res=>console.log(res.data))
-    .catch(err=>console.dir(err))
+    axios
+      .post(
+        `https://lambda-macro-calculator.herokuapp.com/oauth/token`,
+        `grant_type=password&username=${username}&password=${password}`,
+        {
+          headers: {
+            Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          }
+        }
+      )
+      .then(res => {console.log(res.data.access_token)
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token')
+        }
+        localStorage.setItem('token', res.data.access_token)
+        this.props.history.replace('/dashboard')
+      })
+      .catch(err => console.dir(err));
     console.log("user", user);
-    console.log("TODO: connect to backend login");
-    console.log("TODO: set token on localStorage")
+    console.log("TODO: set token on localStorage");
+    
     console.log("TODO: push to protected dashboard");
   };
   render() {

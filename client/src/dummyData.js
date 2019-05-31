@@ -1,6 +1,6 @@
 export const dummyUser = {
-    name: "Casey",
-    username: "abravebee",
+    name: "Test User",
+    username: "dummyUser",
     password: "password123",
     email: "bee@gmail.com",
     gender: "F",
@@ -29,5 +29,7 @@ export const dummyMealMacs = {
     snacks: {
         calories: 250,
         fat: 8.25,
-        carbs: 25,     }
+        carbs: 25, 
+        protein: 18.75    }
 }
+

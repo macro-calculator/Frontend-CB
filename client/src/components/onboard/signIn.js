@@ -22,13 +22,14 @@ const SignIn = props => {
           />
           <h4>Password</h4>
           <input
+          type="password"
             name="password"
             value={props.state.password}
             onChange={props.handleChanges}
           />
           <br /> 
         </form>
-          <p class="switch" onClick={props.switchSign}>Don't have an account yet?</p>
+          <p className="switch" onClick={props.switchSign}>Don't have an account yet?</p>
           <br />
           <button onClick={props.signIn}>Sign In</button>
       </div>

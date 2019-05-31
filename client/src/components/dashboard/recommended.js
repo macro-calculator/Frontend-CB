@@ -11,6 +11,7 @@ function Recommended(props) {
       <h3>Your Recommended Daily Macros</h3>
       <div className="card">
         <table>
+            <tr><th>Macro</th><th>Total</th></tr>
           <tr>
             <td><h4>Calories:</h4></td>
             <td><p>{recommended.calories}</p></td>

@@ -28,6 +28,7 @@ const SignUp = props => {
             />
             <h4>Password</h4>
             <input
+            type="password"
               name="password"
               value={props.state.password}
               onChange={props.handleChanges}
