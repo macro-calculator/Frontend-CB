@@ -32,7 +32,7 @@ function EditMeals(props) {
             mealChoice={props.state.mealChoice}
           />
         </p>
-        <button onClick={props.editMeals} className="minor sub">
+        <button onClick={props.editMeals} className="minor mealsub">
           Submit
         </button>
       </div>

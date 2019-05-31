@@ -1,10 +1,5 @@
-//take in user and password
-//if correct, push to dashboard
-//else, show alert
-
 // == Dependencies == //
 import React from "react";
-// == Components == //
 // == Style == //
 import "../../cards.css";
 

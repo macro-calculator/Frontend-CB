@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-between;
-    width: 20rem;
+    width: 25rem;
     min-height: 15rem;
     height: auto;
     padding: 2rem;
@@ -74,11 +74,11 @@ button {
     border: none;
     background-color: #157D7C; 
     color: white;
-    height: 3rem;
-    width: 11rem;
+    height: 5rem;
+    width: 13rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
     position: absolute;
-    margin-top: 11.5rem;
+    margin-top: 15rem;
 }
 
 button:hover {
@@ -88,33 +88,33 @@ button:hover {
 }
 
 .signup-btn {
-    margin-top: 20rem;
+    margin-top: 26rem;
 }
 
 .minor {
     background-color: #157D7C; 
-    height: 2rem;
-    width: 5rem;
+    height: 3rem;
+    width: 8rem;
     position: absolute;
     /* margin-top: 19rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
 }
 
-/* .goal {
-    margin-top: 10.5rem;
-}
-.meal {
-    margin-top: 11.5rem;
-}
+.goal {
+    margin-top: 19rem;
+} 
+
 .sub {
-    margin-top: 10rem;
+    margin-top: 22rem;
 }
-.empty {
-    margin-top: 7rem;
-} */
+
+.mealsub {
+    margin-top: 12rem;
+}
+
 .cancel {
     margin-top: -3rem;
-    margin-left: 9.5rem;
+    margin-left: 12rem;
     width: 2rem;
     color: #FEFEFD;
     background-color: rgba(200, 16, 16, 0.945); 

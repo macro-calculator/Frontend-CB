@@ -1,8 +1,3 @@
-//render:
-//breakdown
-//editGoal
-//meals
-
 // == Dependencies == //
 import React, { Component } from "react";
 import axios from "axios";
@@ -11,8 +6,6 @@ import Breakdown from "./breakdown";
 import Meals from "../meals/meals";
 // == Style == //
 import "../../cards.css";
-// == Data == //
-import { dummyUser, dummyMacros } from "../../dummyData";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -54,11 +47,10 @@ class Dashboard extends Component {
     } else {
         this.setState({...this.state, token: localStorage.getItem("token")})
         this.fetchUserData()
-      
     }
   }
   componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
+    if (this.props !== prevProps || !this.state.user) {
       if (!localStorage.getItem("token")) {
         this.props.history.replace("/sign");
       } else {
@@ -79,17 +71,25 @@ class Dashboard extends Component {
   }
   editMeals = (mealChoice) => {
       console.log("mealChoice :", mealChoice)
-    let newMacros = {...this.state.user.macros, meals: mealChoice}
-    console.log("newMacros: ", newMacros)
-    let newUser = {...this.state.user, macros: newMacros}
-    console.log('newUser: ', newUser)
+    let newMacros = {meals: mealChoice}
     axios
-    .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newUser, {
+    .put(`https://lambda-macro-calculator.herokuapp.com/macros/updatemeals`, newMacros, {
       headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
-    .then(res => this.setState({...this.state, user: res.data}, () => this.fetchUserData()))
+    .then(res => this.fetchUserData())
+    .catch(err => console.dir(err));
+  }
+  editGoal = (newGoal) => {
+      console.log("newGoal: ", newGoal)
+    axios
+    .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newGoal, {
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(res => this.fetchUserData())
     .catch(err => console.dir(err));
   }
   render() {
@@ -98,7 +98,7 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <h2>Dashboard</h2>
         <h3>Welcome, {this.state.user.name}</h3>
-        <Breakdown state={this.state} />
+        <Breakdown editGoal={this.editGoal} state={this.state} />
         <Meals editMeals={this.editMeals} state={this.state} macros={this.state.user.macros} />
       </div>
     );

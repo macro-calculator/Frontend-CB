@@ -13,23 +13,38 @@ body {
 }
 
 p {
-    font-size: .7rem
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
-    font-size: 1.8rem
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 h2 {
-    font-size: 1.2rem
+    font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 h3 {
-    font-size: 1rem
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 h4 {
-    font-size: .8rem
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h5 {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 code {

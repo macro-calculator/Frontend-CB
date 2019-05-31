@@ -1,4 +1,3 @@
-
 // == Dependencies == //
 import React, { Component } from "react";
 import axios from 'axios'
@@ -8,8 +7,6 @@ import MealsInfo from "./mealsInfo";
 import EditMeals from "./editMeals";
 // == Style == //
 import "../../cards.css";
-// == Data == //
-import {dummyUser, dummyMacros, dummyMealMacs} from '../../dummyData'
 
 class Meals extends Component {
   constructor(props) {

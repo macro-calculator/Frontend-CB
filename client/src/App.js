@@ -5,7 +5,6 @@ import { withRouter, Route, Switch } from "react-router-dom";
 // == Components == //
 import OnBoard from "./components/onboard/onboard";
 import Dashboard from "./components/dashboard/dashboard";
-//import Meals from "./components/meals/meals";
 import NotFound from "./NotFound";
 import Navbar from "./Navbar";
 
@@ -23,7 +22,6 @@ class App extends Component {
         <Switch>
           <Route path="/sign" component={OnBoard} />
           <Route path="/dashboard" component={Dashboard} />
-          {/* <Route path="/meals" component={Meals} /> */}
           <Route component={NotFound} />
         </Switch>
       </div>
