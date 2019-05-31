@@ -39,14 +39,14 @@ table {
 button {
     z-index: 1;
     position: relative;
+
+    color: white;
     padding: 0.5em 1em;
     outline: none;
     border: none;
+    background-color: hsl(236, 32%, 26%);
   }
   
-  button:hover {
-    cursor: pointer;
-  }
   
   button::before {
     content: '';
@@ -56,19 +56,19 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    border: 2px solid rgba(21, 125, 123, 0.596);
-    transform-origin: center;
-    transform: scale(1);
+    background-color: rgba(199, 221, 204, 0.75);
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
   }
-  .cancel::before{
-    border: 1px solid rgba(200, 16, 16, 0.945); ;
+
+  button:hover {
+    cursor: pointer;
   }
   
   button:hover::before {
-    transition: all 0.75s ease-in-out;
-    transform-origin: center;
-    transform: scale(1.75);
-    opacity: 0;
+    transform-origin: center left;
+    transform: scaleX(1);
   }
 button {
     border: none;
@@ -81,11 +81,6 @@ button {
     margin-top: 15rem;
 }
 
-button:hover {
-    background-color: #157D7C;
-    color: #C7DDCC;
-    cursor: pointer;
-}
 
 .signup-btn {
     margin-top: 26rem;
@@ -105,7 +100,7 @@ button:hover {
 } 
 
 .sub {
-    margin-top: 22rem;
+    margin-top: 23.5rem;
 }
 
 .mealsub {
@@ -115,14 +110,16 @@ button:hover {
 .cancel {
     margin-top: -3rem;
     margin-left: 12rem;
-    width: 2rem;
+    width: 3rem;
     color: #FEFEFD;
-    background-color: rgba(200, 16, 16, 0.945); 
+    background-color: rgba(200, 16, 16); 
 }
-
-.cancel:hover {
-    background-color:rgba(200, 16, 16, 0.945); 
-}
+.cancel::before {
+    background-color: #172328; 
+  }
+ .cancel:hover {
+    background-color:rgba(200, 16, 16); 
+} 
 
 .switch {
     color:#157D7C;

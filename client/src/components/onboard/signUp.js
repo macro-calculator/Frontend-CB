@@ -14,44 +14,59 @@ const SignUp = props => {
       <div className="card-container">
         <div className="card">
           <form onSubmit={props.addUser}>
-          <h4>Name</h4>
-            <input
-              name="name"
-              value={props.state.name}
-              onChange={props.handleChanges}
-            />
+            <h4>Name</h4>
+            <div>
+              <input
+                name="name"
+                value={props.state.name}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>Username</h4>
-            <input
-              name="username"
-              value={props.state.username}
-              onChange={props.handleChanges}
-            />
+            <div>
+              <input
+                name="username"
+                value={props.state.username}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>Password</h4>
-            <input
-            type="password"
-              name="password"
-              value={props.state.password}
-              onChange={props.handleChanges}
-            />
+            <div>
+              <input
+                type="password"
+                name="password"
+                value={props.state.password}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>Email</h4>
-            <input
-              name="email"
-              value={props.state.email}
-              onChange={props.handleChanges}
-            />
+            <div>
+              <input
+                name="email"
+                value={props.state.email}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>Age</h4>
-            <input
-              name="age"
-              value={props.state.age}
-              onChange={props.handleChanges}
-            />
+            <div>
+              <input
+                name="age"
+                value={props.state.age}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>Gender</h4>
             <select
               name="gender"
               value={props.state.gender}
               onChange={props.handleChanges}
             >
-            <option />
+              <option />
               <option value={"M"}>M</option>
               <option value={"F"}>F</option>
             </select>
@@ -59,19 +74,20 @@ const SignUp = props => {
         </div>
         <div className="card">
           <form>
-            
-              
             <h4>Height</h4>
             <HeightDropDown
               handleChanges={props.handleChanges}
               height={props.state.height}
             />
             <h4>Current Weight (lbs)</h4>
-            <input
-              name="currentweight"
-              value={props.state.currentweight}
-              onChange={props.handleChanges}
-            />
+            <div>
+              <input
+                name="currentweight"
+                value={props.state.currentweight}
+                onChange={props.handleChanges}
+              />
+              <span className="input" />
+            </div>
             <h4>How many days per week do you exercise?</h4>
             <ActivityDropDown
               handleChanges={props.handleChanges}

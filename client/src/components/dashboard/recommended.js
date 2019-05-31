@@ -19,7 +19,7 @@ function Recommended(props) {
           </tr>
           <tr>
             <td><h4>Fat:</h4></td>
-            <td>{recommended?recommended.fat:'0'}g</td>
+            <td><p>{recommended?recommended.fat:'0'}g</p></td>
           </tr>
           <tr>
             <td><h4>Carbs:</h4></td>
