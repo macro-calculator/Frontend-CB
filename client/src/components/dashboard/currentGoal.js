@@ -5,9 +5,9 @@ import React from "react";
 import "../../cards.css";
 
 const Goal = (props) => {
-  console.log("props.state", props.state);
+
   let goal = props.state.user.goal;
-  console.log("goal: ", goal)
+
   let diet;
   switch (goal) {
     case "aggressive weight loss":

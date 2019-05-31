@@ -5,7 +5,6 @@ import "../../cards.css";
 
 function MealsInfo(props) {
     let recommended = props.recommended
-    console.log("recommended: ", recommended)
   return (
     <div className="MealsInfo">
       <h3>Your Recommended Meal Macros</h3>

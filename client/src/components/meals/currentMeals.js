@@ -16,7 +16,6 @@ function CurrentMeals(props) {
             snacks = choice[3]
         }
     }
-    console.log("choice: ", choice, "snacks :", snacks)
   return (
     <div className="CurrentMeals">
       <h3>Current Meal Schedule</h3>

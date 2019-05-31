@@ -24,7 +24,6 @@ class Breakdown extends Component {
   };
   editGoal = e => {
     let newGoal = {...this.props.state.user, macros: this.state.goal}
-    console.log("newGoal :", newGoal)
     axios
      .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newGoal, {
        headers: {

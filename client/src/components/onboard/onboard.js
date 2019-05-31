@@ -63,9 +63,6 @@ class OnBoard extends Component {
       activitylevel,
       goal
     };
-
-    console.log("newUser", newUser);
-    console.log("TODO: connect to register backend");
     axios
       .post(
         `https://lambda-macro-calculator.herokuapp.com/users/create`,
@@ -78,7 +75,6 @@ class OnBoard extends Component {
       )
       .then(res => console.log(res.data))
       .catch(err => console.dir(err));
-    console.log("TODO: connect to backend login");
     this.switchSign(e);
   };
   signIn = e => {
@@ -105,10 +101,6 @@ class OnBoard extends Component {
         this.props.history.replace('/dashboard')
       })
       .catch(err => console.dir(err));
-    console.log("user", user);
-    console.log("TODO: set token on localStorage");
-    
-    console.log("TODO: push to protected dashboard");
   };
   render() {
     return (
