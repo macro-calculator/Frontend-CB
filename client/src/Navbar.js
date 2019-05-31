@@ -17,7 +17,7 @@ function Navbar() {
         </NavLink>
       </div>
       <div className="links">
-        <NavLink className="navlink">
+        <NavLink className="navlink" to={'/sign'}>
           <h3><span>Home</span></h3>
         </NavLink>
         <NavLink className="navlink" to={'/dashboard'}>
