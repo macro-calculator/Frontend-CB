@@ -79,13 +79,11 @@ class OnBoard extends Component {
       .then(res => console.log(res.data))
       .catch(err => console.dir(err));
     console.log("TODO: connect to backend login");
-    this.signIn()
+    this.switchSign(e);
   };
   signIn = e => {
-    if(e){
-    e.preventDefault();
-    }
-
+    if(e) e.preventDefault();
+    
     const { username, password } = this.state;
     const user = { username, password };
     axios

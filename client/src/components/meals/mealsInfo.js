@@ -14,18 +14,18 @@ function MealsInfo(props) {
             <tr><th>Macro</th><th>Meals</th><th>Snacks</th></tr>
           <tr>
             <td><h4>Fat:</h4></td>
-            <td><p>{recommended.fatsPerMeal?recommended.fatsPerMeal:'0'}g</p></td>
-            <td><p>{recommended.fatsPerSnack?recommended.fatsPerSnack:'0'}g</p></td>
+            <td><p>{recommended?recommended.fatsPerMeal:'0'}g</p></td>
+            <td><p>{recommended?recommended.fatsPerSnack:'0'}g</p></td>
           </tr>
           <tr>
             <td><h4>Carbs:</h4></td>
-            <td><p>{recommended.carbsPerMeal?recommended.carbsPerMeal:'0'}g</p></td>
-            <td><p>{recommended.carbsPerSnack?recommended.carbsPerSnack:'0'}g</p></td>
+            <td><p>{recommended?recommended.carbsPerMeal:'0'}g</p></td>
+            <td><p>{recommended?recommended.carbsPerSnack:'0'}g</p></td>
           </tr>
           <tr>
             <td><h4>Protein:</h4></td>
-            <td><p>{recommended.proteinPerMeal?recommended.proteinPerMeal:'0'}g</p></td>
-            <td><p>{recommended.proteinPerSnack?recommended.snacks.proteinPerSnack:'0'}g</p></td>
+            <td><p>{recommended?recommended.proteinPerMeal:'0'}g</p></td>
+            <td><p>{recommended?recommended.proteinPerSnack:'0'}g</p></td>
           </tr>
         </table>
       </div>

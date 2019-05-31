@@ -49,13 +49,8 @@ class Dashboard extends Component {
     };
   }
   componentDidMount() {
-    //check if user is authenticated
-    //if not, redirect to log-in page
-    //if so, fetch data
-    console.log("componentDidMount");
     if (!localStorage.getItem("token")) {
-      console.log("no item");
-      this.props.history.replace("/sign");
+   this.props.history.replace("/sign");
     } else {
         this.setState({...this.state, token: localStorage.getItem("token")})
         this.fetchUserData()
@@ -63,35 +58,48 @@ class Dashboard extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    console.log("componentDidUpdate");
     if (this.props !== prevProps) {
       if (!localStorage.getItem("token")) {
-        console.log("no item");
         this.props.history.replace("/sign");
       } else {
         this.fetchUserData();
       }
     }
   }
-  fetchUserData() {
+  fetchUserData = () => {
     axios
       .get(`https://lambda-macro-calculator.herokuapp.com/users/current`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
-      .then(res => this.setState({...this.state, user: res.data}))
+      .then(res => this.setState({...this.state, user: res.data}, () => console.log("fetched: ", this.state.user)))
       .catch(err => console.dir(err));
     //this.setState({ ...this.state, user: dummyUser, macros: dummyMacros });
   }
+  editMeals = (mealChoice) => {
+      console.log("mealChoice :", mealChoice)
+    let newMacros = {...this.state.user.macros, meals: mealChoice}
+    console.log("newMacros: ", newMacros)
+    let newUser = {...this.state.user, macros: newMacros}
+    console.log('newUser: ', newUser)
+    axios
+    .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newUser, {
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(res => this.setState({...this.state, user: res.data}, () => this.fetchUserData()))
+    .catch(err => console.dir(err));
+  }
   render() {
-      console.log("Dashboard state: ", this.state)
+
     return (
       <div className="Dashboard">
         <h2>Dashboard</h2>
         <h3>Welcome, {this.state.user.name}</h3>
         <Breakdown state={this.state} />
-        <Meals state={this.state} macros={this.state.user.macros} />
+        <Meals editMeals={this.editMeals} state={this.state} macros={this.state.user.macros} />
       </div>
     );
   }

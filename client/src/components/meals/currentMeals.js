@@ -4,10 +4,19 @@ import React from "react";
 import "../../cards.css";
 
 function CurrentMeals(props) {
-    let choice = props.state.mealChoice.split(',')
-    let meals = choice[0]
-    let snacks = choice[1]
-    console.log("choice: ", choice)
+    let choice = null
+    if (props.state.macros && props.state.macros.meals) choice = props.state.macros.meals
+    
+    let meals = 0
+    let snacks = 0
+    if (props.state.macros && props.state.macros.meals) {
+        choice = choice.split(' ')
+        meals = choice[0]
+        if (choice.length == 5) {
+            snacks = choice[3]
+        }
+    }
+    console.log("choice: ", choice, "snacks :", snacks)
   return (
     <div className="CurrentMeals">
       <h3>Current Meal Schedule</h3>

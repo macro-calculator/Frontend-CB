@@ -6,9 +6,16 @@ import MealsDropDown from "./mealsDrop.js";
 import "../../cards.css";
 
 function EditMeals(props) {
-    let choice = props.state.mealChoice.split(',')
-    let meals = choice[0]
-    let snacks = choice[1]
+    let choice = props.state.macros.meals
+    let meals = 0
+    let snacks = 0
+    if (props.state.macros.meals) {
+        choice = choice.split(' ')
+        meals = choice[0]
+        if (choice.length == 5) {
+            snacks = choice[3]
+        }
+    }
   return (
     <div className="EditMeals">
       <h3>Edit Meals Schedule</h3>
@@ -22,7 +29,7 @@ function EditMeals(props) {
           <h4>New Schedule:</h4>
           <MealsDropDown
             handleChanges={props.handleChange}
-            mealsChoice={props.state.mealsChoice}
+            mealChoice={props.state.mealChoice}
           />
         </p>
         <button onClick={props.editMeals} className="minor sub">

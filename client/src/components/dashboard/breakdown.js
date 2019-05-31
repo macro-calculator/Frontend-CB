@@ -1,5 +1,7 @@
-// == Dependencies ==//
+// == Dependencies == //
 import React, { Component } from "react";
+import axios from 'axios'
+// == Components == //
 import CurrentGoal from "./currentGoal";
 import EditGoal from "./editGoal";
 import Recommended from "./recommended";
@@ -21,8 +23,18 @@ class Breakdown extends Component {
     this.setState({ editGoal: !this.state.editGoal });
   };
   editGoal = e => {
-    let newGoal = this.state.goal;
-    dummyUser.goal = newGoal;
+    let newGoal = {...this.props.state.user, macros: this.state.goal}
+    console.log("newGoal :", newGoal)
+    axios
+     .put(`https://lambda-macro-calculator.herokuapp.com/users/update`, newGoal, {
+       headers: {
+           Authorization: `Bearer ${localStorage.getItem('token')}`
+       }
+     })
+     .then(res => this.setState({...this.state, user: res.data}))
+     .catch(err => console.dir(err));
+    //this.setState({...this.state, mealChoice:dummyUser.mealChoice})
+    this.editSwitch(e);
     this.editSwitch(e);
   };
   handleChange = e => {

@@ -5,7 +5,8 @@ import React from "react";
 import "../../cards.css";
 
 function Recommended(props) {
-  let recommended = props.state.user.macros;
+    let recommended = null
+  if(props.state.user.macros) recommended = props.state.user.macros;
   return (
     <div className="Recommended">
       <h3>Your Recommended Daily Macros</h3>
@@ -14,19 +15,19 @@ function Recommended(props) {
             <tr><th>Macro</th><th>Total</th></tr>
           <tr>
             <td><h4>Calories:</h4></td>
-            <td><p>{recommended.calories}</p></td>
+            <td><p>{recommended?recommended.calories:'0'}</p></td>
           </tr>
           <tr>
             <td><h4>Fat:</h4></td>
-            <td>{recommended.fat}g</td>
+            <td>{recommended?recommended.fat:'0'}g</td>
           </tr>
           <tr>
             <td><h4>Carbs:</h4></td>
-            <td><p>{recommended.carb}g</p></td>
+            <td><p>{recommended?recommended.carb:'0'}g</p></td>
           </tr>
           <tr>
             <td><h4>Protein:</h4></td>
-            <td><p>{recommended.protein}g</p></td>
+            <td><p>{recommended?recommended.protein:'0'}g</p></td>
           </tr>
         </table>
       </div>
