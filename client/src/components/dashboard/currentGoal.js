@@ -1,13 +1,12 @@
-//*Ability to edit current weight or goal and have macros be updated.
 // == Dependencies ==//
 import React from "react";
 // == Style == //
 import "../../cards.css";
 
 const Goal = (props) => {
-  console.log("props.state", props.state);
+let weight = props.state.user.currentweight;
   let goal = props.state.user.goal;
-  console.log("goal: ", goal)
+
   let diet;
   switch (goal) {
     case "aggressive weight loss":
@@ -37,6 +36,7 @@ const Goal = (props) => {
       <div className="card">
         {goal ? (
           <p>
+              Current Weight: <h4>{weight?weight:'N/A'}</h4>
             Your current goal is
             <h4>{goal}</h4>
             with a

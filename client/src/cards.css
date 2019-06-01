@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-between;
-    width: 20rem;
+    width: 25rem;
     min-height: 15rem;
     height: auto;
     padding: 2rem;
@@ -39,14 +39,14 @@ table {
 button {
     z-index: 1;
     position: relative;
+
+    color: white;
     padding: 0.5em 1em;
     outline: none;
     border: none;
+    background-color: hsl(236, 32%, 26%);
   }
   
-  button:hover {
-    cursor: pointer;
-  }
   
   button::before {
     content: '';
@@ -56,73 +56,70 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    border: 2px solid rgba(21, 125, 123, 0.596);
-    transform-origin: center;
-    transform: scale(1);
+    background-color: rgba(199, 221, 204, 0.75);
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
   }
-  .cancel::before{
-    border: 1px solid rgba(200, 16, 16, 0.945); ;
+
+  button:hover {
+    cursor: pointer;
   }
   
   button:hover::before {
-    transition: all 0.75s ease-in-out;
-    transform-origin: center;
-    transform: scale(1.75);
-    opacity: 0;
+    transform-origin: center left;
+    transform: scaleX(1);
   }
 button {
     border: none;
     background-color: #157D7C; 
     color: white;
-    height: 3rem;
-    width: 11rem;
+    height: 5rem;
+    width: 13rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
     position: absolute;
-    margin-top: 11.5rem;
+    margin-top: 15rem;
 }
 
-button:hover {
-    background-color: #157D7C;
-    color: #C7DDCC;
-    cursor: pointer;
-}
 
 .signup-btn {
-    margin-top: 20rem;
+    margin-top: 26rem;
 }
 
 .minor {
     background-color: #157D7C; 
-    height: 2rem;
-    width: 5rem;
+    height: 3rem;
+    width: 8rem;
     position: absolute;
     /* margin-top: 19rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3), 0 6px 20px 0 rgb(0, 0, .3);
 }
 
-/* .goal {
-    margin-top: 10.5rem;
-}
-.meal {
-    margin-top: 11.5rem;
-}
+.goal {
+    margin-top: 19rem;
+} 
+
 .sub {
-    margin-top: 10rem;
-}
-.empty {
-    margin-top: 7rem;
-} */
-.cancel {
-    margin-top: -3rem;
-    margin-left: 9.5rem;
-    width: 2rem;
-    color: #FEFEFD;
-    background-color: rgba(200, 16, 16, 0.945); 
+    margin-top: 23.5rem;
 }
 
-.cancel:hover {
-    background-color:rgba(200, 16, 16, 0.945); 
+.mealsub {
+    margin-top: 12rem;
 }
+
+.cancel {
+    margin-top: -3rem;
+    margin-left: 12rem;
+    width: 3rem;
+    color: #FEFEFD;
+    background-color: rgba(200, 16, 16); 
+}
+.cancel::before {
+    background-color: #172328; 
+  }
+ .cancel:hover {
+    background-color:rgba(200, 16, 16); 
+} 
 
 .switch {
     color:#157D7C;

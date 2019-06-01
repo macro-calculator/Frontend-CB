@@ -5,6 +5,10 @@ import { NavLink } from "react-router-dom";
 import "./App.css";
 
 function Navbar() {
+    const signOut = () => {
+        localStorage.removeItem('token')
+        this.props.history.replace('/sign')
+    }
   return (
     <div className="Navbar">
       <div className="logo">
@@ -13,7 +17,7 @@ function Navbar() {
         </NavLink>
       </div>
       <div className="links">
-        <NavLink className="navlink">
+        <NavLink className="navlink" to={'/sign'}>
           <h3><span>Home</span></h3>
         </NavLink>
         <NavLink className="navlink" to={'/dashboard'}>
@@ -22,10 +26,10 @@ function Navbar() {
         {/* <NavLink className="navlink" to={'/meals'}>
           <h3><span>Meals</span></h3>
         </NavLink> */}
-        <NavLink className="navlink" to={'/settings'}>
+        {/* <NavLink className="navlink" to={'/settings'}>
           <h3><span>Settings</span></h3>
-        </NavLink>
-        <NavLink className="navlink" to={'/sign'}>
+        </NavLink> */}
+        <NavLink className="navlink" onClick={() => signOut()}>
           <h3><span>Sign Out</span></h3>
         </NavLink>
       </div>
